@@ -7,5 +7,6 @@ class html_downloader(object):
             return None
         response = request.urlopen(url)
         if response.getcode() != 200:
+            print(response.getcode())
             return None
         return response.read()
