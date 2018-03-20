@@ -1,2 +1,2 @@
-mysite including apps:
-polls
+# ysite including apps:
+# polls
