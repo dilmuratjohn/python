@@ -1,1 +1,1 @@
-# some python projects
+# some Django projects
