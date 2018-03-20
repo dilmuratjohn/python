@@ -1,1 +1,1 @@
-# some python projects
+# A Bank Transfer System python projects
