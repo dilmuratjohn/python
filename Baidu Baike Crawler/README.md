@@ -1,1 +1,1 @@
-# A Baidu Baike Crawler python projects
+# A Baidu Baike Crawler python project
