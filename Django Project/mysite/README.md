@@ -1,1 +1,2 @@
-# some Django projects
+# mysite including apps:
+polls
