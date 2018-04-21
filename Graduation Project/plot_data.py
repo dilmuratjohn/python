@@ -15,7 +15,7 @@ def plot(data, name):
     plt.figure()
     plt.plot(axis_x, axis_y)
     plt.grid(True)
-    plt.savefig("auto_save#%s.png" % name)
+    plt.savefig("save#%s.png" % name)
     return 0
 
 
