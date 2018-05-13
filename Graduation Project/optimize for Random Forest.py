@@ -1,7 +1,8 @@
 from sklearn.model_selection import GridSearchCV
 import numpy as np
 import pandas as pd
-from sklearn.neural_network import MLPClassifier
+from sklearn.ensemble import RandomForestClassifier
+
 train = pd.read_excel('stats.xls', sheet_name='train')
 test = pd.read_excel('stats.xls', sheet_name='test')
 
@@ -14,26 +15,28 @@ y = np.asarray(train['状态'], dtype="|S6")
 X_test = array_test[0:, 1:11]
 
 # Set the parameters by cross-validation
-# MLPClassifier(hidden_layer_sizes=(100,), activation='identity', solver='adam', alpha=0.01,
-#               batch_size='auto', learning_rate='adaptive', learning_rate_init=0.0001,
-#               power_t=0.5, max_iter=200000, shuffle=True, random_state=None, tol=0.0001,
-#               verbose=False, warm_start=False, momentum=0.9, nesterovs_momentum=True,
-#               early_stopping=False, validation_fraction=0.2, beta_1=0.9, beta_2=0.99, epsilon=1e-08),
+# RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
+#             max_depth=2, max_features='auto', max_leaf_nodes=None,
+#             min_impurity_decrease=0.0, min_impurity_split=None,
+#             min_samples_leaf=1, min_samples_split=2,
+#             min_weight_fraction_leaf=0.0, n_estimators=10, n_jobs=1,
+#             oob_score=False, random_state=0, verbose=0, warm_start=False),
+tuned_parameters = [{'n_estimators': [1, 5, 10, 15],
+                     'criterion': ['gini', 'entropy'],
+                     'max_depth': [1, 2, 3, 5],
+                     'min_samples_split':[2, 3, 5],
+                     'min_samples_leaf':[1, 2, 3, 5]}]
 
-tuned_parameters = [{'learning_rate_init': [0.001, 0.002, 0.003],
-                     'alpha': [0.01, 0.05,  0.1, 0.5],
-                     'power_t': [0.2, 0.3, 0.4, 0.5],
-                     'momentum':[0.5, 0.6, 0.7, 0.8, 0.9],
-                     'validation_fraction':[0.1, 0.2, 0.3, 0.4, 0.5]
-                      }]
+scores = ['precision', 'recall', 'f1']
 
-scores = ['precision', 'recall']
+
+
 
 for score in scores:
     print("# Tuning hyper-parameters for %s" % score)
     print()
 
-    clf = GridSearchCV(MLPClassifier(), tuned_parameters, cv=5,
+    clf = GridSearchCV(RandomForestClassifier(), tuned_parameters, cv=5,
                        scoring='%s_macro' % score)
     clf.fit(X, y)
 
