@@ -1,11 +1,4 @@
-//
-//  myModule
-//
-//  Created by Collin on 10/1/18.
-//  Copyright © 2018 Collin. All rights reserved.
-//
-
-#include <Python/Python.h>
+#include <Python.h>
 
 int Cfib(int n){
     if (n<2){
@@ -38,6 +31,6 @@ static PyMethodDef myMethods[] = {
     {NULL, NULL, 0, NULL}
 };
 
-PyMODINIT_FUNC initMyModule(void){
+PyMODINIT_FUNC initmyModule(void){
     (void) Py_InitModule("myModule", myMethods);
 }
