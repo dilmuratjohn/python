@@ -5,7 +5,7 @@ from Crypto.Hash import SHA256
 
 def encrypt(key, filename):
 	chunksize = 64*1024
-	outputFile = "(encrypted)" + filename
+	outputFile = "encrypted-" + filename
 	filesize = str(os.path.getsize(filename)).zfill(16)
 	IV = ""
 
@@ -32,7 +32,7 @@ def encrypt(key, filename):
 
 def decrypt(key, filename):
 	chunksize = 64 * 1024
-	outputFile = filename[11:]
+	outputFile = "decrypted-" + filename
 
 	with open(filename, "rb") as infile:
 		filesize = long(infile.read(16))
@@ -49,9 +49,9 @@ def decrypt(key, filename):
 
 				outfile.write(decryptor.decrypt(chunk))
 
-			outfile.trunkcate(filesize)
+			outfile.truncate(filesize)
 
-def gatKey(password):
+def getKey(password):
 	hasher = SHA256.new(password)
 	return hasher.digest()
 
