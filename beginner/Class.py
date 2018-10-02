@@ -1,4 +1,5 @@
-#little exercise for Class tyle in Python  
+#little exercise for Class tyle in Python
+  
 class Person(object):
     def __new__(cls,*args,**kw):
         print("call Person's__new__")
@@ -8,6 +9,7 @@ class Person(object):
         self.name = name
     def __str__(self):
         return 'Person object : <%s>' %(self.name)
+
 class Student(Person):
         hobby='I like Studying'
         def __new__(cls,*args,**kw):
@@ -52,6 +54,7 @@ class Programmer(Student):
             return 'Programmer object : <%s>:%ser' %(self.name,self.language)
         #def __dir__(self):
             #return self.__dict__.keys()
+            
 def introduce(className):
     if  isinstance(className,Programmer):
         className.self_introduction()

@@ -14,7 +14,7 @@ print('123'.isalnum())
 print('fff'.isalpha())
 print('11'.isdecimal())
 print('1A'.isdigit())
-print('a@'.isidentifier())  #判断是否为合法变量名
+print('a@'.isidentifier()) 
 print('+'.join(['1', '2', '3', '4']))
 print(name.ljust(50, '#'))
 print(name.rjust(50, '#'))

@@ -7,11 +7,11 @@ print('-----data0-----\n', data0)
 print('-----data2-----\n', data2)  # 因为有文件指针
 f.close()
 
-f = open("yesterday2.txt", 'w',  encoding="utf-8")
+f = open("some.txt", 'w',  encoding="utf-8")
 f.write("\nwhen i was young i listen to the radio\n")
 f.close()
 
-f = open("yesterday2.txt", 'r',  encoding="utf-8")
+f = open("some.txt", 'r',  encoding="utf-8")
 print(f.tell())
 data1 = f.read()
 print('-----read-----\n', data1)
@@ -21,12 +21,12 @@ data3 = f.read()
 print('-----read-----\n', data3)
 f.close()
 
-# f = open("yesterday2",'r+', encoding="utf-8")  # 文件句柄 读写
-# f = open("yesterday2",'w+', encoding="utf-8")  # 文件句柄 写读
-# f = open("yesterday2",'a+', encoding="utf-8")  # 文件句柄 追加读写
-# f = open("yesterday2",'wb')  # 文件句柄 二进制文件
+# f = open("yesterday2",'r+', encoding="utf-8") 
+# f = open("yesterday2",'w+', encoding="utf-8") 
+# f = open("yesterday2",'a+', encoding="utf-8") 
+# f = open("yesterday2",'wb') 
 
-# f.write("hello binary\n".encode()) # 写二进制
+# f.write("hello binary\n".encode()) 
 
 # print(f.encoding)
 # print(f.flush())
@@ -38,7 +38,7 @@ f.close()
 count = 0
 for line in f:
     if count == 9:
-        print('-----我是分割线-----')
+        print('-') * 9
         count += 1
         continue
     print(line)
@@ -48,7 +48,7 @@ for line in f:
 
 for index,line in enumerate(f.readlines()):
     if index == 9:
-        print('-----我是分割线-----')
+        print('-') * 9
         continue
     print(line.strip())
 #for i in range(5):

@@ -2,8 +2,8 @@ import sys
 
 __author__ = "Colin"
 
-f = open("yesterday2.txt", "r", encoding="utf-8")
-f_new = open("yesterday2.txt.bak", "w", encoding="utf-8")
+f = open("some.txt", "r", encoding="utf-8")
+f_new = open("some.txt.bak", "w", encoding="utf-8")
 
 find_str = 'when'
 replace_str = 'how'

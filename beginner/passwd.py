@@ -1,7 +1,6 @@
 # Author:Colin
 import getpass
 
-
 _username = "Colin"
 _password = "123456"
 username = input("username:")

@@ -11,7 +11,7 @@ p1=person[:]
 p2=person[:]
 
 p1[0]='alex'
-p2[0]='fengjie'
+p2[0]='cat'
 
 p1[1][1]=50
 
