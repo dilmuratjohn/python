@@ -1,2 +1,0 @@
-# mysite including apps:
-# polls
